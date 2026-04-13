@@ -1,0 +1,8 @@
+Implemented the cicd using the github actions.
+This helps to upload the files to the s3 bucket uploads folder
+Once file is uploaded s3 bucket triggers lambda fuction to check whether the file is valid or not
+If the file is valid it is moved to the processed folder
+If the file is not valid it is moved to the failed folder
+Once it is done it can be checked using the DynamoDB table where the metadata is stored like error, file size and all.
+If there is any there we can check using the cloudwatch logs which is implemeted for the lambda functionality.
+Integrated cloudwatch Alarms for the lambda functionality, like if there are any erros it will be notified to mail via SNS service
